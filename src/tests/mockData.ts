@@ -17,7 +17,7 @@ export const mockDirectionData = [
   { direction_id: 1, direction_name: "Southbound" },
 ];
 
-export const mockPlaceData = [
+export const mockStopsData = [
   {
     place_code: "HHTE",
     description: "MSP Airport Terminal 2 - Humphrey Station",

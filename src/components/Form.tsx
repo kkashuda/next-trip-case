@@ -8,7 +8,7 @@ import {
 import { useQuery } from "react-query";
 
 import { Route } from "../types/Route";
-import { getDirections, getPlaces, getRoutes } from "../api";
+import { getDirections, getStops, getRoutes } from "../api";
 import { Direction } from "../types/Direction";
 import { Place } from "../types/Place";
 import {
@@ -51,9 +51,9 @@ function Form() {
     { retry: false, enabled: selectedRoute !== "default" }
   );
 
-  const { data: places, isLoading: isLoadingPlaces } = useQuery<Place[]>(
-    ["places", selectedRoute, selectedDirection],
-    async () => await getPlaces(selectedRoute, selectedDirection),
+  const { data: stops, isLoading: isLoadingStops } = useQuery<Place[]>(
+    ["stops", selectedRoute, selectedDirection],
+    async () => await getStops(selectedRoute, selectedDirection),
     {
       retry: false,
       enabled: selectedRoute !== "default" && selectedDirection > -1,
@@ -160,11 +160,11 @@ function Form() {
       <Grid item xs={12} md={4}>
         <StyledSelect
           onChange={handlePlaceChange}
-          value={!isLoadingPlaces ? selectedPlace : "default"}
+          value={!isLoadingStops ? selectedPlace : "default"}
           disabled={
             selectedRoute === "default" ||
             selectedDirection === -1 ||
-            isLoadingPlaces
+            isLoadingStops
           }
           data-testid="stop-select"
           inputProps={{
@@ -173,7 +173,7 @@ function Form() {
           }}
         >
           <MenuItem value="default">Select stop...</MenuItem>
-          {places?.map((stop: Place) => (
+          {stops?.map((stop: Place) => (
             <MenuItem value={stop.place_code} key={stop.place_code}>
               {stop.description}
             </MenuItem>

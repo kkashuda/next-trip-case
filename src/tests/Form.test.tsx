@@ -13,7 +13,7 @@ import DepartureDataContext from "../context/DepartureDataContext";
 import { QueryClientProvider, QueryClient } from "react-query";
 import userEvent from "@testing-library/user-event";
 import * as apiModule from "../api";
-import { mockDirectionData, mockPlaceData, mockRouteData } from "./mockData";
+import { mockDirectionData, mockStopsData, mockRouteData } from "./mockData";
 import { InitialEntry, createMemoryHistory } from "history";
 
 afterEach(jest.clearAllMocks);
@@ -94,7 +94,7 @@ test("selecting route sets a value and enables directions input", async () => {
   cleanup();
 });
 
-test("selecting direction sets a value and enables places input", async () => {
+test("selecting direction sets a value and enables stops input", async () => {
   jest
     .spyOn(apiModule, "getRoutes")
     .mockImplementation(() => Promise.resolve(mockRouteData));
@@ -103,9 +103,9 @@ test("selecting direction sets a value and enables places input", async () => {
     .spyOn(apiModule, "getDirections")
     .mockImplementation(() => Promise.resolve(mockDirectionData));
 
-  const placesSpy = jest
-    .spyOn(apiModule, "getPlaces")
-    .mockImplementation(() => Promise.resolve(mockPlaceData));
+  const stopsSpy = jest
+    .spyOn(apiModule, "getStops")
+    .mockImplementation(() => Promise.resolve(mockStopsData));
 
   customRender(
     <Form />,
@@ -130,12 +130,12 @@ test("selecting direction sets a value and enables places input", async () => {
 
   expect(await screen.findByTestId("direction-input")).toHaveValue("0");
   expect(await screen.findByTestId("stop-input")).toBeEnabled();
-  expect(placesSpy).toHaveBeenCalled();
+  expect(stopsSpy).toHaveBeenCalled();
 
   cleanup();
 });
 
-test("selecting places sets a value", async () => {
+test("selecting stop sets a value", async () => {
   jest
     .spyOn(apiModule, "getRoutes")
     .mockImplementation(() => Promise.resolve(mockRouteData));
@@ -144,9 +144,9 @@ test("selecting places sets a value", async () => {
     .spyOn(apiModule, "getDirections")
     .mockImplementation(() => Promise.resolve(mockDirectionData));
 
-  const placesSpy = jest
-    .spyOn(apiModule, "getPlaces")
-    .mockImplementation(() => Promise.resolve(mockPlaceData));
+  const stopsSpy = jest
+    .spyOn(apiModule, "getStops")
+    .mockImplementation(() => Promise.resolve(mockStopsData));
 
   customRender(
     <Form />,
@@ -156,7 +156,7 @@ test("selecting places sets a value", async () => {
     ["/?route=901&direction=0"]
   );
 
-  expect(placesSpy).toHaveBeenCalled();
+  expect(stopsSpy).toHaveBeenCalled();
 
   await waitFor(async () =>
     expect(await screen.findByTestId("stop-input")).toBeEnabled()
@@ -186,9 +186,9 @@ test("unsetting direction value disabled stop input", async () => {
     .spyOn(apiModule, "getDirections")
     .mockImplementation(() => Promise.resolve(mockDirectionData));
 
-  const placesSpy = jest
-    .spyOn(apiModule, "getPlaces")
-    .mockImplementation(() => Promise.resolve(mockPlaceData));
+  const stopsSpy = jest
+    .spyOn(apiModule, "getStops")
+    .mockImplementation(() => Promise.resolve(mockStopsData));
 
   customRender(
     <Form />,
@@ -237,9 +237,9 @@ test("unsetting stop value disabled stop input", async () => {
     .spyOn(apiModule, "getDirections")
     .mockImplementation(() => Promise.resolve(mockDirectionData));
 
-  const placesSpy = jest
-    .spyOn(apiModule, "getPlaces")
-    .mockImplementation(() => Promise.resolve(mockPlaceData));
+  const stopsSpy = jest
+    .spyOn(apiModule, "getStops")
+    .mockImplementation(() => Promise.resolve(mockStopsData));
 
   const { history } = customRender(
     <Form />,

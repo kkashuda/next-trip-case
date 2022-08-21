@@ -16,8 +16,8 @@ import {
   axiosError,
   mockDirectionData,
   mockNextRoutesData,
-  mockPlaceData,
   mockRouteData,
+  mockStopsData,
 } from "./mockData";
 import { InitialEntry } from "history";
 import userEvent from "@testing-library/user-event";
@@ -71,8 +71,8 @@ test("expect getNextTrips to be called when a route, direction and place is prov
     .mockImplementation(() => Promise.resolve(mockDirectionData));
 
   jest
-    .spyOn(apiModule, "getPlaces")
-    .mockImplementation(() => Promise.resolve(mockPlaceData));
+    .spyOn(apiModule, "getStops")
+    .mockImplementation(() => Promise.resolve(mockStopsData));
 
   const nextTripsSpy = jest
     .spyOn(apiModule, "getNextTrips")

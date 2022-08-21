@@ -32,7 +32,7 @@ export async function getDirections(routeId: string) {
 }
 
 // returns a list of stops or "places" that are valid for a given routeId and directionId
-export async function getPlaces(routeId: string, directionId: number) {
+export async function getStops(routeId: string, directionId: number) {
   const { data } = await axios.get<Place[]>(
     `https://svc.metrotransit.org/nextripv2/stops/${routeId}/${directionId}`,
     {
