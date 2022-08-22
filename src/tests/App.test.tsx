@@ -188,7 +188,7 @@ test("expect getStop to be called with the provided stop id when the 'enter' key
   cleanup();
 });
 
-test("expect getStop to be called with the provided stop id when the 'enter' key is pressed", async () => {
+test("expect error message to render when the stop id is invalid", async () => {
   // suppress react-query logger to keep output clean
   setLogger({
     log: () => {},
