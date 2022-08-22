@@ -26,7 +26,10 @@ const DepartureTable = ({ nextTrips }: Props) => {
       <Table stickyHeader aria-label="departure table">
         <TableHead>
           <TableRow>
-            <TableCell colSpan={isMobile ? 2 : 1}>
+            <TableCell
+              colSpan={isMobile ? 2 : 1}
+              sx={{ backgroundColor: "#EDEDED" }}
+            >
               <Typography sx={{ fontSize: isMobile ? 14 : 16 }}>
                 Stop Name:{" "}
                 <span data-testid="stop-name-header">
@@ -34,7 +37,11 @@ const DepartureTable = ({ nextTrips }: Props) => {
                 </span>
               </Typography>
             </TableCell>
-            <TableCell align="right" colSpan={isMobile ? 1 : 2}>
+            <TableCell
+              align="right"
+              colSpan={isMobile ? 1 : 2}
+              sx={{ backgroundColor: "#EDEDED" }}
+            >
               <Typography noWrap sx={{ fontSize: isMobile ? 14 : 16 }}>
                 Stop #:{" "}
                 <span data-testid="stop-id-header">
@@ -44,11 +51,11 @@ const DepartureTable = ({ nextTrips }: Props) => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={{ top: 57 }}>Destination</TableCell>
-            <TableCell style={{ top: 57 }} align="left">
+            <TableCell sx={{ top: 57 }}>Destination</TableCell>
+            <TableCell sx={{ top: 57 }} align="left">
               Route
             </TableCell>
-            <TableCell style={{ top: 57 }} align="right">
+            <TableCell sx={{ top: 57 }} align="right">
               Depart Time
             </TableCell>
           </TableRow>
@@ -66,7 +73,7 @@ const DepartureTable = ({ nextTrips }: Props) => {
                 <TableCell component="th" scope="row">
                   {departure.route_short_name}
                 </TableCell>
-                <TableCell size="small" align="right" style={{ width: 80 }}>
+                <TableCell size="small" align="right" sx={{ width: 80 }}>
                   {departure.actual && (
                     <DepartureBoardIcon
                       aria-label="live departure time"

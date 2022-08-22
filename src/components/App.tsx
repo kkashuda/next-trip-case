@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { Box, Typography, Tabs, Tab, styled } from "@mui/material";
+import DirectionsSubwayIcon from "@mui/icons-material/DirectionsSubway";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { useQuery } from "react-query";
 
@@ -87,8 +88,9 @@ function App() {
 
   return (
     <StyledBox>
-      <Box paddingBottom={12}>
-        <Typography variant="h5" textAlign="center">
+      <Box paddingBottom={5} sx={{ textAlign: "center" }}>
+        <DirectionsSubwayIcon fontSize="large" />
+        <Typography variant="h6" textAlign="center">
           Minneapolis Metro Transit Real Time Departures
         </Typography>
       </Box>
