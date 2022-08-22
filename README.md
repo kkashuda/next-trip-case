@@ -4,6 +4,7 @@ Next Trip displays Minneapolis Metro Transit bus line information based on
 the data from [Metro Transit NextTrip API](https://svc.metrotransit.org/swagger/index.html).
 
 You can access the deployed application here: https://next-trip-case-study.herokuapp.com/
+Medium Fidelity Wireframes: https://www.figma.com/file/GVYOU7SMlDeBhPL2gIwsfu/Next-Trip-Medium-Fidelity-Mocks?node-id=0%3A1
 
 Dependencies:
 
