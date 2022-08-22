@@ -3,8 +3,6 @@
 Next Trip displays Minneapolis Metro Transit bus line information based on
 the data from [Metro Transit NextTrip API](https://svc.metrotransit.org/swagger/index.html).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 You can access the deployed application here: https://next-trip-case-study.herokuapp.com/
 
 Dependencies:
@@ -31,4 +29,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `npm run test:coverage`
 
-Launches the test runner in the interactive watch mode and includes test coverage metrics.\
+Launches the test runner in the interactive watch mode and includes test coverage metrics.
