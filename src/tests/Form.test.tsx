@@ -5,10 +5,9 @@ import {
   waitFor,
   cleanup,
   within,
-  renderHook,
 } from "@testing-library/react";
 import Form from "../components/Form";
-import { Router, useSearchParams, MemoryRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 import DepartureDataContext from "../context/DepartureDataContext";
 import { QueryClientProvider, QueryClient } from "react-query";
 import userEvent from "@testing-library/user-event";
@@ -228,7 +227,7 @@ test("unsetting direction value disabled stop input", async () => {
   cleanup();
 });
 
-test("unsetting stop value disabled stop input", async () => {
+test("unsetting stop value clears out the selected stop", async () => {
   jest
     .spyOn(apiModule, "getRoutes")
     .mockImplementation(() => Promise.resolve(mockRouteData));

@@ -79,23 +79,25 @@ function StopIdSearchInput() {
           type="number"
           InputProps={{
             inputProps: { min: 0 },
+            endAdornment: (
+              <IconButton
+                type="button"
+                aria-label="search"
+                onClick={handleSearchButtonClick}
+                data-testid="search-button"
+              >
+                <SearchIcon />
+              </IconButton>
+            ),
           }}
           id="filled-basic"
           label="Stop Id"
-          variant="standard"
+          variant="outlined"
           onKeyDown={handleKeyPress}
           onChange={(event) => setInputValue(event.target.value)}
           value={inputValue}
           data-testid="search-input"
         />
-        <IconButton
-          type="button"
-          aria-label="search"
-          onClick={handleSearchButtonClick}
-          data-testid="search-button"
-        >
-          <SearchIcon />
-        </IconButton>
       </Grid>
       <Grid item xs={6}>
         {invalidStopId && (

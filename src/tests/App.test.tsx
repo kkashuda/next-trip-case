@@ -21,7 +21,6 @@ import {
 } from "./mockData";
 import { InitialEntry } from "history";
 import userEvent from "@testing-library/user-event";
-import { AxiosError } from "axios";
 
 afterEach(cleanup);
 
